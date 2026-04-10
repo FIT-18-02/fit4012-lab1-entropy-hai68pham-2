@@ -1,5 +1,6 @@
 #include <cmath>
 #include <iostream>
+
 #include <map>
 #include <string>
 
@@ -24,13 +25,13 @@ double calculate_entropy(const string &text) {
 }
 
 double calculate_redundancy(const string &text, int alphabet_size = 256) {
-    if (text.empty()) {
-        return 0.0;
-    }
-
-    double entropy = calculate_entropy(text);
-    return log2(alphabet_size) - entropy;
+    double H_max = log2(alphabet_size);
+    double H     = calculate_entropy(text);
+    (void)text;
+    (void)alphabet_size;
+    return H_max - H;
 }
+
 int main() {
     string input;
     cout << "Enter a string of characters: ";
