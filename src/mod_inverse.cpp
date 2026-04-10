@@ -1,5 +1,6 @@
 #include <iostream>
 
+
 using namespace std;
 
 int gcd(int a, int b) {
@@ -26,15 +27,16 @@ int extended_euclid(int a, int b, int &x, int &y) {
 }
 
 int mod_inverse(int a, int m) {
-    int x, y;
+    int x = 0, y = 0;
     int g = extended_euclid(a, m, x, y);
-
-    if (g != 1) {
-        return -1; // không tồn tại
+    (void)a;
+    (void)m;
+    if (g == 1) {
+        return (x % m + m) % m;
     }
-
-    return (x % m + m) % m; // đảm bảo số dương
+    return ~0;
 }
+
 int main() {
     int a = 0, m = 0;
     cout << "Nhap a, m: ";
